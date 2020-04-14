@@ -1,0 +1,137 @@
+.Footer {
+  text-align: center;
+  background-color: black;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4,min-content);
+  grid-template-areas: 
+  "logo"
+  "nav"
+  "legal"
+  "copyright"
+  ;
+  @include mq($from: tablet){
+    padding: 6rem;
+  }
+  grid-row-gap: 3rem;
+  @include mq($from: desktop){
+    grid-template-columns: min-content 0.3fr 0.7fr;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-areas: 
+    "logo nav nav"
+    "legal legal copyright"
+    ;
+    grid-row-gap: 3rem;
+    padding: 3rem;
+  }
+}
+
+.Footer__brand {
+  
+  grid-area: logo;
+  align-self: center;
+  @include mq($until: desktop){
+    margin: 0 auto;
+    max-width: 13rem;
+  }
+  
+  .social {
+    display: flex;
+    padding-inline-start: 0;
+    .Nav__item {
+      display: inline;
+      padding: 0 0.5em;
+      font-size: 16px;
+      &:first-child, &:last-child {
+        padding: 0;
+      }
+    }
+    .icon {
+      width: 2em;
+      height: 2em;
+    }
+  }
+}
+
+.Footer__navigation {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  @include mq($from: desktop){
+    justify-self: flex-end;
+  }
+  
+}
+.Footer__utilities {
+  @include mq($from: desktop){
+    align-self: flex-end;
+  }
+  
+  margin-top: 1em;
+  a{
+    color: gc(ui, blue) !important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 0.5em;
+    &:first-child {
+      padding: 0 0.5em 0 0;
+    }
+    &:last-child {
+      padding: 0 0 0 0.5em;
+    }
+
+  }
+}
+
+.Footer__legal {
+  grid-area: legal;
+  display: flex;
+  p {
+    font-size: 0.8rem;
+    color: gc(ui, grey);
+    @include mq($from: desktop){
+      justify-self: flex-start;
+      text-align: left;
+    }
+  }
+}
+.Footer__copyright {
+  grid-area: copyright;
+  
+  color: gc(ui, grey);
+  @include mq($from: desktop){
+    justify-self: flex-end;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+}
+  
+.personal-data-cta{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: gc(ui, blue);
+  color: white;
+  border-radius: 3px;
+  a {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1rem 0 1rem 1rem;
+    color: white !important;
+  }
+  .close {
+    cursor: pointer;
+    border-left: 1px solid #0095c7;
+    padding: 0 0.2rem;
+    vertical-align: middle;
+    @include rfs(2.5rem);
+    line-height: 0.7;
+    padding-left: 1rem;
+    margin: 1rem;
+  }
+}

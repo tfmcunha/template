@@ -1,0 +1,194 @@
+// ============================================================================
+// NAV
+// ============================================================================
+.Nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
+
+.Nav__submenu {
+  
+}
+
+// ============================================================================
+// NAV-ITEM
+// ============================================================================
+.Nav__item {
+  @include rfs(1rem, padding-right);
+  @include rfs(1rem, padding-left);
+  a {
+    color: white;
+  }
+}
+.Nav__item--level-2 {
+  font-size: 0.8em;
+}
+
+// ============================================================================
+// VARIANTS
+// ============================================================================
+.Nav--main {
+  justify-content: center;
+  height: 100%;
+  
+  .Nav__item--level-1 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+    >a {
+      position: relative;
+      &:after {
+        content:"";
+        height: 4px;
+        background-color: gc(ui, blue);
+        position: absolute;
+        bottom: -5px;
+        left: 100%;
+        width: 0;
+        transition: all 1s;
+      }
+      &:hover:after {
+        width: 100%;
+        left:0;
+      }
+      &.is-active:after {
+        
+          content:"";
+          height: 4px;
+          background-color: gc(ui, blue);
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          transition: all 1s;
+        
+      }
+    }
+    &:hover .Nav__submenu {
+      opacity: 1;
+      height: 100%;
+      transform: scaleY(1) ;
+      transform-origin: top center;
+    }
+    
+    
+  }
+  .Nav__submenu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transform: scaleY(0);
+    transform-origin: top center;
+    background-color: rgb(51, 51, 51);;
+    opacity: 0;
+    transition: transform 500ms ease-out;
+    a:hover {
+      transition: color 1s;
+      color: gc(ui, blue)
+    }
+    
+  }
+}
+
+.NavMobile--main {
+  .Nav__item--level-1 {
+    border-top: 1px solid #979797;
+    margin: 0 1rem;
+    padding: 1em 0;
+    .wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .arrow {
+      float: right;
+      margin-right: 2em;
+
+      &:after {
+        content:"";
+        transform: rotate(45deg);
+        transition: transform 500ms;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #979797;
+        border-bottom: 2px solid #979797;
+      }
+    }
+  }
+  
+  .Accordion__item {
+    margin-bottom: 0;
+    
+  }
+
+  .Accordion__container {
+    padding: 0 !important;
+  }
+  .Accordion__item.is-active {
+    .Nav__item--level-1 {
+      padding: 1em;
+      background-color: #292929;
+      > a {
+        color: gc(ui, blue);
+      }
+      .arrow {
+        margin-right: 1em;
+        &:after {
+          transform: rotate(225deg);
+          border-right-color: gc(ui, blue);
+          border-bottom-color: gc(ui, blue);
+        }
+      }
+    }
+    .Accordion__container {
+      text-align: center;
+      border-top: 1px solid #979797;
+      padding: 1em 0 0 0 !important;
+      margin-top: 1em;
+      
+    }
+  }
+  .Nav__submenu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+  .Nav__item--level-2 {
+    padding: 0.5em 0;
+    &:nth-child(even) {
+      padding-left: 1em;
+    }
+    &:nth-child(odd) {
+      border-right: 1px solid #979797;
+    }
+  }
+}
+
+.Nav--footer {
+  justify-content: center;
+  .Nav__item {
+    padding: 1em;
+    
+    &:last-child {
+      @include mq($from: desktop){
+        padding-right: 0;
+      }
+    }
+    a {
+      color: gc(ui, grey);
+      font-size: 14px;
+    }
+  }
+} 

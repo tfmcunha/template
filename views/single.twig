@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+{% set dataView = 'lodging' %}
+{% set namespace = 'single' %}
+{% set actions = post.get_field('user_actions') %}
+
+{% block content %}
+  <div class="Main">
+    <div class="Page__content Layout--A">
+      <div class="Container Layout__content">
+        {{ post.content | raw }}        
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block drawers %}
+  {{ parent() }}
+  {% include 'parts/cta/cta.twig' with {'actions': actions, 'placement': 'modal'} only %}
+{% endblock drawers %}

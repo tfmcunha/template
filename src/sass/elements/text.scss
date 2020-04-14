@@ -1,0 +1,177 @@
+body {
+  font-family: $f-sans;
+  font-weight: 300;
+  font-size: $base-font-size;
+  line-height: 1.5;
+  color: gc(text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $f-sans;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 0.6em 0;
+  &:not(:first-child) {
+    margin-top: 0.6em;
+  }
+  .Main__aside & {
+    color: gc(text, neutral);
+  }
+}
+
+h1 {
+  @include rfs($f-size-h1);
+}
+h2 {
+  @include rfs($f-size-h2);
+}
+h3 {
+  @include rfs($f-size-h3);
+}
+h4 {
+  @include rfs($f-size-h4);
+}
+h5 {
+  @include rfs($f-size-h5);
+}
+h6 {
+  @include rfs($f-size-h6);
+}
+
+p {
+  margin: 0 0 1.4em 0;
+  @include mq($from: tablet){
+    font-size: 20px;
+  }
+  @include mq($from: desktop){
+    font-size: 22px;
+  }
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+a {
+  color: gc(ui, blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:focus {
+  color: inherit;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid gc(dark);
+  margin: 2rem 0;
+  &.Container {
+    margin: 4rem auto;
+  }
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+}
+
+blockquote {
+  text-transform: none;
+  margin: 2em auto;
+  max-width: 24em;
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p {
+  &.has-small-font-size {
+    font-size: 13px;
+  }
+  &.has-medium-font-size {
+    font-size: 18px;
+    @include mq($until: tablet){
+      font-size: 14px;
+    }
+  }
+  &.has-large-font-size {
+   font-size: 20px;
+  }
+  &.has-xlarge-font-size {
+    font-size: 22px;
+   }
+
+}
+
+$fsmargin: 0.5rem;
+
+h1 {
+  &.has-small-heading-font-size {
+    @include rfs($f-size-h1 - $fsmargin);
+  }
+  &.has-big-heading-font-size {
+    @include rfs($f-size-h1 + $fsmargin);
+  }
+}
+
+h2 {
+  &.has-small-heading-font-size {
+    @include rfs($f-size-h2 - $fsmargin);
+  }
+  &.has-big-heading-font-size {
+    @include rfs($f-size-h2 + $fsmargin);
+  }
+}
+
+h3 {
+  &.has-small-heading-font-size {
+    @include rfs($f-size-h3 - $fsmargin);
+  }
+  &.has-big-heading-font-size {
+    @include rfs($f-size-h3 + $fsmargin);
+  }
+}
+
+h4 {
+  &.has-small-heading-font-size {
+    @include rfs($f-size-h4 - $fsmargin);
+  }
+  &.has-big-heading-font-size {
+    @include rfs($f-size-h4 + $fsmargin);
+  }
+}
+
+h5 {
+  &.has-small-heading-font-size {
+    @include rfs($f-size-h5 - $fsmargin);
+  }
+  &.has-big-heading-font-size {
+    @include rfs($f-size-h5 + $fsmargin);
+  }
+}
+
+h6 {
+  &.has-small-heading-font-size {
+    @include rfs($f-size-h6 - $fsmargin);
+  }
+  &.has-big-heading-font-size {
+    @include rfs($f-size-h6 + $fsmargin);
+  }
+}
+
+.has-light-font {
+  font-weight: 300;
+}

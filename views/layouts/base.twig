@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+  {% include 'parts/html-head.twig' %}
+  <body class="{{ body_class}} {{ title | lower | replace({" ": "-"}) }}" data-view="{{ dataView }}" data-barba="wrapper">
+    <div class="Template view-{{ namespace }}" data-barba="container" {{ namespace ? 'data-barba-namespace="' ~ namespace ~ '"'}} data-view="{{ namespace }}">
+      {% block header %}
+        {% include "parts/site-header.twig" %}
+      {% endblock %}
+      {% block content %}
+        Sorry, no content
+      {% endblock %}
+      {% block drawers %}
+      {% endblock drawers %}
+      {% block footer %}
+        {% include "parts/site-footer.twig" %}
+      {% endblock footer %}
+      {% include 'parts/html-footer.twig' %}
+    </div>
+  </body>
+</html>

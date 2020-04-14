@@ -1,0 +1,32 @@
+.CTA {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  > *:last-child {
+    margin-top: auto;
+  }
+  .Icon {
+    @include mq($until: desktop) {
+      text-align: center !important;
+    }
+  }
+  .Buttons {
+    justify-content: center;
+  }
+  p{
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    margin-bottom: 0.8em;
+  }
+  .wp-block-gwm-link-with-icon{
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: inherit;
+    .icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

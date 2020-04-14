@@ -1,0 +1,75 @@
+/**
+ * Container
+ * Layout container for layout major parts
+ */
+
+@mixin structural-container {
+  width: 100%;
+  max-width: calc(100% - 4rem);
+  margin: 0 auto;
+
+  @media (min-width: #{map-get($layout, max-width) + 8rem}) {
+    max-width: map-get($layout, max-width);
+  }
+}
+
+@mixin full-width-container {
+  @include mq(1200px) {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+.Container {
+  @include structural-container;
+}
+
+.Container--narrow {
+  @media (min-width: #{map-get($layout, max-width-narrow) + 4rem}) {
+    max-width: map-get($layout, max-width-narrow);
+  }
+}
+
+.Container--narrower {
+  @media (min-width: #{map-get($layout, max-width-narrower) + 4rem}) {
+    max-width: map-get($layout, max-width-narrower);
+  }
+}
+
+.Container--narrowest {
+    @media (min-width: #{map-get($layout, max-width-narrowest) + 4rem}) {
+    max-width: map-get($layout, max-width-narrowest);
+  }
+}
+
+.Container--wide {
+  @media (min-width: #{map-get($layout, max-width-wide) + 10rem}) {
+    max-width: map-get($layout, max-width-wide);
+  }
+}
+
+.Container--wider {
+  // max-width: calc(100% - 4rem);
+  @media (min-width: #{map-get($layout, max-width-wide) + 2rem}) {
+    max-width: map-get($layout, max-width-wide);
+  }
+  @media (min-width: #{map-get($layout, max-width-wider) + 2rem}) {
+    max-width: map-get($layout, max-width-wider);
+  }
+}
+
+// .Container--widest {
+//   max-width: map-get($layout, max-width-widest);
+// }
+
+@for $i from 1 through 10 {
+  .my-#{$i} {
+      margin-top: #{$i}rem;
+      margin-bottom: #{$i}rem;
+  }
+}
+
+.wp-block-gwm-container {
+  margin-left:auto;
+  margin-right:auto;
+}

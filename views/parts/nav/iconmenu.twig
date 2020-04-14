@@ -1,0 +1,13 @@
+{% macro embedded_list(items) %}
+
+  {% import _self as menus %}
+  {% for item in items %}
+    <li class="Nav__item Nav__item--main {{ item.classes | join(' ')}}">
+      <a href="{{ item.link }}" class="Nav__mainOption {{item.classes | join(' ')}}" {% if item.target %}target="{{ item.target }}"{% endif %} alt="{{ item.attr_title }}" itemprop="url" >
+        <svg viewBox='0 0 20 20' class='icon' width='1em' height='1em'>
+          <use xlink:href='#{{ fn('sanitize_title', item.title )}}'></use>
+        </svg>
+      </a>
+    </li>
+  {% endfor %}
+{% endmacro %}

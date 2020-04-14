@@ -1,0 +1,11 @@
+.error404 {
+  .Header {
+    background-color: black;
+  }
+  .Main {
+    margin: 0 auto;
+    @include margin-top(12rem);
+    max-width: 30rem;
+    text-align: center;
+  }
+}

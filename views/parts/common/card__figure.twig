@@ -1,0 +1,27 @@
+{% set isIcon = 'svg' in image.post_mime_type or 'icon' in image.file or 'icon' in image.post_title %}
+{% set bemClass = bemClass ?: 'Card' %}
+<figure class="{{ bemClass }}__figure {{ isIcon ? 'Card__figure--icon'}}" {{ anim_params }}>
+  {% if image.src %}
+    {% if link %}
+      <a href="{{ link }}">
+    {% endif %}
+    <img
+      data-src="{{ image.src|resize(100) }}"
+      data-srcset="
+          {{ image.src|resize(100) }} 100w,
+          {{ image.src|resize(300) }} 300w,
+          {{ image.src|resize(600) }} 600w,
+          {{ image.src|resize(1200) }} 1200w,
+          {{ image.src|resize(2400) }} 2400w
+          "
+      data-sizes="auto"
+      {% if focalPoint %}
+        style="object-position: {{focalPoint.x  * 100}}% {{focalPoint.y  * 100}}%"
+      {% endif %}
+      class="lazyload"
+      itemprop="image" />
+    {% if link %}
+      </a>
+    {% endif %}
+  {% endif %}
+</figure>

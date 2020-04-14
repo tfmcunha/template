@@ -1,0 +1,16 @@
+ul {
+  padding-inline-start: 1rem;
+  text-align: left;
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+  li {
+    font-size: 1rem;
+    @include mq($from: tablet) {
+      font-size: 20px;
+    }
+    @include mq($from: desktop) {
+      font-size: 22px;
+    }
+  }
+}

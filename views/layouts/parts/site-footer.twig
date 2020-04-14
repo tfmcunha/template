@@ -1,0 +1,40 @@
+{% import 'parts/nav/menu.twig' as menu %}
+{% import 'parts/nav/iconmenu.twig' as iconmenu %} 
+
+<footer class="Footer">
+	<div class="Footer__brand">
+		<a href="{{ site.url }}">
+			<svg viewbox='0 0 205 60'>
+				<use xlink:href='#logo'></use>
+			</svg>
+		</a>
+      <ul class="social">
+         {{ iconmenu.embedded_list( nav.social.items ) }}
+      </ul>
+	</div>
+	<div class="Footer__navigation">
+
+		<div class="Nav Nav--footer">
+			{{ menu.embedded_list( nav.footer.items ) }}
+		</div>
+    <div class="Footer__utilities">
+      <a href="/sign-up-for-vrs">Sign Up for Relay</a>
+      <a href="https://www.scis.com/countries" target="_blank">Get an Interpreter</a>
+    </div>
+	</div>
+	<div class="Footer__legal">
+		<p>
+			Sorenson Video Relay Service® (SVRS®) is a service for the Deaf community paid for by the U.S. government’s Telecommunications Relay Service (TRS) fund.
+		</p>
+	</div>
+  <div class="Footer__copyright">
+		<p>
+			© 2019 Sorenson Communications, LLC. All rights reserved.
+		</p>
+	</div>
+</footer>
+
+<div id="CCPA_notice" class="personal-data-cta" data-component="CCPA">
+	<a href="/we-dont-sell-your-personal-data">We Don't Sell Your Personal Data</a>
+	<span class="close">&times</span>
+</div>

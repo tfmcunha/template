@@ -1,0 +1,71 @@
+// Add percentage of white to a color
+@function tint($color, $percent) {
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent) {
+  @return mix(black, $color, $percent);
+}
+
+@function gc($color, $value: 'base') {
+  @return map-get(map-get($colors, $color), $value);
+}
+
+// variable prefixes for CSS4 output
+$color-prefix: --color-;
+
+// retrieve color from map with Sass ie. `color(primary, base)`
+@function color($color-name, $color-variant: base, $true-val: false) {
+  // we need to return the color value
+  @if $true-val == true {
+    // color variant is optional
+    @if ($color-variant != null) {
+      // map inception, need two deep
+      @return map-get(map-get($colors, $color-name), $color-variant);
+    } @else {
+      // single-level color, one deep
+      @return map-get($colors, $color-name);
+    }
+    // if we're only returning the CSS4 variable
+  } @else {
+    // color variant is optional
+    @if ($color-variant != null) {
+      // map inception, need two names
+      @return var(#{$color-prefix}#{$color-name}-#{$color-variant});
+    } @else {
+      // single-level color, one name
+      @return var(#{$color-prefix}#{$color-name});
+    }
+  }
+}
+
+// define local variable
+@mixin var($name, $value) {
+  #{--$name}: $value;
+}
+// access any variable
+@function v($name) {
+  @return var(--#{$name});
+}
+
+/* ripped CSS4 vars out of color map */
+:root {
+  // each item in color map
+  @each $name, $color in $colors {
+    // maps require a second loop
+    @if type-of($color) == 'map' {
+      // each item in sub map
+      @each $subname, $subcolor in $color {
+        // --color-primary-base
+        #{$color-prefix}#{$name}-#{$subname}: $subcolor;
+      }
+
+      // normal colors
+    }
+    @elseif type-of($color) == "color" {
+      // --color-background
+      #{$color-prefix}#{$name}: $color;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// homepage
+.view-home {
+  .Hero {
+    .Hero__main {
+      min-height: 390px;
+      @include mq($from: tablet) {
+        min-height: 560px;
+      }
+      @include mq($from: desktop) {
+        min-height: 900px;
+      }
+      &[data-placement*='bottom'] {
+        grid-template-rows: 1.7fr 0.1fr 0.5fr;
+      }
+    }
+  }
+  .custom-home-options-loop {
+    .Card__details {
+      padding-top: 1rem;
+    }
+  }
+}

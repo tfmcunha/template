@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+{% set dataView = 'venue' %}
+
+{% block content %}
+  <div class="Main Container Container--layoutA">
+    <div class="Layout__content">
+      {{ post.content|raw }}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,221 @@
+/**
+ * ----------------------------------------------------------------------------
+ * BUTTONS
+ * 1. Allow us to better style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Stop buttons wrapping and looking broken.
+ * 4. Make buttons inherit font styles.
+ * 5. Force all elements using beautons to appear clickable.
+ * 6. Normalise box model styles.
+ * 7. If the button’s text is 1em, and the button is (3 * font-size) tall, then
+ *    there is 1em of space above and below that text. We therefore apply 1em
+ *    of space to the left and right, as padding, to keep consistent spacing.
+ * 8. Previne que o botão diminua comprima o texto quando dentro de um elemento flexbox
+ * ----------------------------------------------------------------------------
+ */
+
+%button,
+.Button,
+input[type='submit'] {
+  display: inline-block; // [1]
+  vertical-align: middle; // [2]
+  white-space: nowrap; // [3]
+  font-family: $f-sans; // [4]
+  font-size: 100%; // [4]
+  cursor: pointer; // [5]
+  border: none; // [6]
+  margin: 0; // [6]
+  padding-top: 0; // [6]
+  padding-bottom: 0; // [6]
+  border-radius: mg($forms, input, radius);
+  // text-transform: none;
+  text-align: center;
+  transition: all 0.18s ease;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 1.14px;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none;
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.toggle-mobile {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+
+/**
+ * ============================================================================
+ * BUTTON LAYOUTS
+ * ============================================================================
+ */
+
+%btn-layout--default {
+  $height: mg($buttons, default, height);
+  font-size: mg($buttons, default, font-size);
+  // height: calc(#{strip-unit($height)} - 0.3);
+  line-height: strip-unit($height);
+  padding: mg($buttons, default, padding);
+  border-radius: mg($buttons, default, radius);
+}
+
+// %btn-layout--small,
+// .Button--small {
+//   $height: mg($buttons, small, height);
+//   font-size: mg($buttons, small, font-size);
+//   // height        : $height;
+//   line-height: strip-unit($height);
+//   padding: mg($buttons, small, padding);
+//   border-radius: mg($buttons, small, radius);
+// }
+
+// %btn-layout--compact,
+// .Button--compact {
+//   $height: mg($buttons, compact, height);
+//   font-size: mg($buttons, compact, font-size);
+//   // height        : $height;
+//   line-height: strip-unit($height);
+//   padding: mg($buttons, compact, padding);
+//   border-radius: mg($buttons, compact, radius);
+//   text-transform: uppercase;
+// }
+
+// %btn-layout--big,
+// .Button--big {
+//   $height: mg($buttons, big, height);
+//   font-size: mg($buttons, big, font-size);
+//   // height        : $height;
+//   line-height: strip-unit($height);
+//   padding: mg($buttons, big, padding);
+//   border-radius: mg($buttons, big, radius);
+// }
+
+// %btn-layout--huge,
+// .Button--huge {
+//   $height: mg($buttons, huge, height);
+//   font-size: mg($buttons, huge, font-size);
+//   // height        : $height;
+//   line-height: strip-unit($height);
+//   padding: mg($buttons, huge, padding);
+//   border-radius: mg($buttons, huge, radius);
+// }
+
+// %btn-layout--block,
+// .Button--block {
+//   @include increase-specificity() {
+//     width: 100%;
+//   }
+// }
+
+%btn-layout--text,
+.Button--text {
+  padding-left: 0;
+  padding-right: 0;
+  line-height: unset;
+}
+
+/**
+ * ============================================================================
+ * BUTTON STYLES
+ * ============================================================================
+ */
+
+%btn-style--default {
+  background: gc(ui, blue);
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+
+  &.is-style-green {
+    background: gc(ui, green);
+    &:hover {
+      background: lighten(gc(ui, green), 5%);
+    }
+  }
+  &.is-style-default {
+    background: gc(ui, blue);
+    &:hover {
+      background: lighten(gc(ui, blue), 5%);
+    }
+  }
+  &.is-style-yellow {
+    background: gc(ui, yellow);
+    color: black;
+    &:hover {
+      background: lighten(gc(ui, yellow), 5%);
+    }
+  }
+  &.is-style-magenta {
+    background: gc(ui, magenta);
+    &:hover {
+      background: lighten(gc(ui, magenta), 5%);
+    }
+  }
+  &.is-style-darkblue {
+    background: gc(ui, darkblue);
+    &:hover {
+      background: lighten(gc(ui, darkblue), 5%);
+    }
+  }
+
+  &.is-style-white {
+    background: gc(ui, white);
+    color: gc(ui, green);
+    &:hover {
+      background: darken(gc(ui, white), 5%);
+    }
+  }
+}
+
+// %btn-style--primary,
+// .Button--primary {
+//   $baseColor: gc(brand, base2);
+
+//   color: white;
+//   background: $baseColor;
+
+//   &:hover {
+//     background: darken($baseColor, 5%);
+//     color: white;
+//   }
+// }
+
+.Button--isDisabled {
+  &,
+  &:hover {
+    background-color: gc(muted);
+    color: gc(text, muted);
+    cursor: not-allowed;
+  }
+}
+
+/**
+* ============================================================================
+* BUTTON DECLARATIONS
+* Here we extend and assign the styles and layout to each button
+* ============================================================================
+*/
+
+.Button,
+// .button,
+
+input.Button {
+  @extend %btn-style--default;
+  @extend %btn-layout--default;
+}

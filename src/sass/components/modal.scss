@@ -1,0 +1,109 @@
+.Modal {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 100;
+
+  .backdrop {
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0, rgba(0, 0, 0, 0.8) 100%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    will-change: opacity;
+  }
+}
+
+.Modal--no-frame .Modal__box {
+  padding: 0;
+}
+
+.Modal__content {
+  flex: 1 1 auto;
+  overflow: auto;
+  color: gc(text);
+  @include increase-specificity() {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    p {
+      margin: 1.4em 0;
+    }
+  }
+}
+
+.Modal__box {
+  width: 46rem;
+  max-height: 85vh;
+  max-width: 90%;
+  background: white;
+  border-radius: 3px;
+  padding: 2.6rem;
+  box-shadow: hsla(37, 6%, 17%, 0.1) 0 0 4px, hsla(37, 6%, 17%, 0.1) 0 4px 22px;
+  display: flex;
+  flex-direction: column;
+  z-index: 91;
+  button.closeModal {
+    @include absolute(top -4rem right 0rem);
+    color: white;
+    @include rfs(1.4rem);
+    svg {
+      width: 1em !important;
+    }
+    @include mq($from: desktop) {
+      right: -1rem;
+    }
+  }
+}
+
+.Modal--narrow .Modal__box,
+.Modal--small .Modal__box {
+  width: 30rem;
+}
+
+.Modal--wide .Modal__box,
+.Modal--big .Modal__box {
+  width: 60rem;
+}
+
+.Modal--large .Modal__box {
+  width: 70rem;
+}
+
+.Modal {
+  .js-closeModal {
+    @include absolute(top 2rem right 2rem);
+    font-size: ms(4);
+    color: gc(text);
+    cursor: pointer;
+  }
+}
+
+.Modal__header {
+  color: gc(text, neutral);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: ms(-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Modal__header--noLayout {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
+}

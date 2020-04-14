@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+{% set namespace = 'home' %}
+{# {% set blocks = post.get_field('content_blocks') %} #}
+
+{% block content %}
+  <main class="Main">
+    <div class="Main__content">
+      <div class="Container">
+      {{ post.content | raw }}
+      </div>
+    </div>
+  </main>
+{% endblock %}

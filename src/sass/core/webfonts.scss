@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'IvarHeadline';
+  src: url('../fonts/IvarHeadline-Regular.woff2') format('woff2'), url('../fonts/IvarHeadline-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IvarHeadline';
+  src: url('../fonts/IvarHeadline-SemiBold.woff2') format('woff2'), url('../fonts/IvarHeadline-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'chlakh';
+  src: url('../fonts/chlakh_webfont.woff2') format('woff2'), url('../fonts/chlakh_webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('Axiforma-Regular.eot');
+  src: local('Axiforma Regular'), local('Axiforma-Regular'),
+      url('../fonts/Axiforma-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Axiforma-Regular.woff2') format('woff2'),
+      url('../fonts/Axiforma-Regular.woff') format('woff'),
+      url('../fonts/Axiforma-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Drama';
+  src: url('Drama-Regular.otft');
+  src: local('Drama Regular'), local('Drama Regular'),
+      url('../fonts/Drama-Regular.otf') format('otf'),
+      url('../fonts/Drama-Regular.ttf') format('truetype');
+}
+

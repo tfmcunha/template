@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="25px" viewBox="0 0 23 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>android</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.3396 0.867 8.187 0.867 8.187 7.214 0.3396 7.214"></polygon>
+        <polygon id="path-3" points="0.7316 0.821 15.5036 0.821 15.5036 12.3586 0.7316 12.3586"></polygon>
+        <polygon id="path-5" points="0.0002 0.2961 12.2222 0.2961 12.2222 24 0.0002 24"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="android" transform="translate(0.000000, -1.000000)">
+            <g id="Group-3" transform="translate(14.000000, 9.179200)">
+                <g id="Fill-1-Clipped">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="path-1"></g>
+                    <path d="M7.7126,3.028 L3.8606,0.867 L0.3396,4.419 L3.1376,7.214 L7.7126,4.648 C8.3456,4.293 8.3456,3.382 7.7126,3.028" id="Fill-1" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+            <g id="Group-6" transform="translate(1.000000, 0.179200)">
+                <g id="Fill-4-Clipped">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="path-3"></g>
+                    <polygon id="Fill-4" fill="#000000" fill-rule="nonzero" mask="url(#mask-4)" points="15.5036 9.1066 0.7316 0.8206 12.2786 12.3586"></polygon>
+                </g>
+            </g>
+            <polygon id="Fill-7" fill="#000000" fill-rule="nonzero" points="4.5944 23.4284 15.7784 17.1564 13.2834 14.6634"></polygon>
+            <g id="Group-11" transform="translate(0.000000, 1.179200)">
+                <g id="Fill-9-Clipped">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="path-5"></g>
+                    <path d="M0.0842,0.2961 C0.0342,0.4211 0.0002,0.5551 0.0002,0.7031 L0.0002,22.9731 C0.0002,23.4751 0.3282,23.8601 0.7462,24.0001 L12.2222,12.4241 L0.0842,0.2961 Z" id="Fill-9" fill="#000000" fill-rule="nonzero" mask="url(#mask-6)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

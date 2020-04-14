@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "files": [
+      "vendor/rareloop/lumberjack-core/src/functions.php"
+    ]
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.3",
+    "johnbillion/extended-cpts": "^4.2",
+    "rareloop/lumberjack-core": "^4.3"
+  }
+}

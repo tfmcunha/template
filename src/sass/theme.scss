@@ -1,0 +1,110 @@
+@import '../../node_modules/modularscale-sass/stylesheets/_modularscale.scss';
+@import '../../node_modules/family.scss/source/src/_family.scss';
+@import '../../node_modules/sass-mq/_mq.scss';
+
+/**
+* ----------------------------------------------------------------------------
+* 00 RESETS
+* ----------------------------------------------------------------------------
+*/
+
+@import 'core/reset';
+
+/**
+* ----------------------------------------------------------------------------
+* 01 SETTINGS
+* Contains the configuration files that holds global variables for the project
+* (for typography, color schemes, and so on).
+* ----------------------------------------------------------------------------
+*/
+//@import 'core/webfonts';
+@import 'core/settings/colors';
+@import 'core/settings/typography';
+@import 'core/settings/layout';
+
+/**
+* ----------------------------------------------------------------------------
+* 02 HELPERS
+* The helpers/ folder (sometimes called utils/) gathers all Sass tools and helpers
+* we’ll use across the project. Got a function? A mixin? Put it in there.
+* ----------------------------------------------------------------------------
+*/
+
+@import 'core/helpers/border';
+@import 'core/helpers/colors';
+@import 'core/helpers/images';
+@import 'core/helpers/interaction';
+@import 'core/helpers/layout';
+@import 'core/helpers/links';
+@import 'core/helpers/mixins';
+@import 'core/helpers/position';
+@import 'core/helpers/responsive';
+@import 'core/helpers/rfs';
+@import 'core/helpers/size';
+@import 'core/helpers/specificity';
+@import './core/helpers/utilities';
+@import './core/utilities';
+
+/**
+* ----------------------------------------------------------------------------
+* 02 VENDORS
+* Third-party libraries. Come after the initial settings and helper imports
+* so that they can make use of that codebase
+* ----------------------------------------------------------------------------
+*/
+// @import 'vendor/flickity';
+// @import 'vendor/simplelightbox';
+
+/**
+* ----------------------------------------------------------------------------
+* 03 RENDER
+* The render section contains all components and abstractions that can be
+* linked to frontend markup.
+* ----------------------------------------------------------------------------
+*/
+
+// ELEMENTS -------------------------------------------------------------------
+// Individual DOM elements
+@import 'elements/text';
+@import 'elements/button';
+@import 'elements/list';
+// @import 'elements/form';
+// @import 'render/elements/table';
+
+// COMPONENTS -----------------------------------------------------------------
+// Individual elements combine to form complex structures
+
+@import 'components/container';
+@import 'components/cta';
+@import 'components/loop';
+// @import 'components/modal';
+
+@import 'components/nav';
+@import 'components/accordion.scss';
+
+// BLOCKS ---------------------------------------------------------------------
+// WordPress content blocks. In concept they are identical to components
+// but isolated as their own entity to help isolate the abstractions
+
+
+// PAGES-------------------------------------------------------------------------
+
+
+// ANIMATIONS -------------------------------------------------------------------
+
+
+// LAYOUT ----------------------------------------------------------------------
+@import 'layout/base';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/footer';
+
+// TEMPLATES ------------------------------------------------------------------
+// Different site views, such as a product, page, list
+@import 'templates/404';
+@import 'templates/home';
+
+// VIEWS ----------------------------------------------------------------------
+// Sometimes we need to override a template on a specific view, a special
+// product, or product category that needs to have its layout different
+// from the base template

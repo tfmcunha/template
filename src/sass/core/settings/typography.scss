@@ -1,0 +1,30 @@
+$f-sans: 'Axiforma', Helvetica, Verdana, Arial, sans-serif;
+$f-serif: 'Times New Roman', serif;
+$f-stack-default: $f-sans;
+
+$base-font-size: 16px;
+
+// MODULAR SCALE VARS
+$ms-base: $base-font-size;
+// $ms-base          : 14px;
+// $ms-ratio         : $golden;
+// $ms-ratio: $major-second;
+$ms-ratio: 1.138;
+
+$f-size-h1: 3.6rem;
+$f-size-h2: 3.1rem;
+$f-size-h3: 1.8rem;
+$f-size-h4: 1.4rem;
+$f-size-h5: 1.3rem;
+$f-size-h6: 1.1rem;
+
+$f-size-xxs: ms(-3);
+$f-size-xs: ms(-2);
+$f-size-s: ms(-1);
+$f-size: 0.95rem;
+$f-size-l: ms(1);
+$f-size-xl: ms(3);
+$f-size-xxl: ms(5);
+
+$f-line-height-ratio: 1.65;
+$f-line-height: $f-size * $f-line-height-ratio !default;

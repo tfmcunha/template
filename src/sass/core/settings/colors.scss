@@ -1,0 +1,56 @@
+$colors: (
+  ui: (
+    blue: #00A8E1,
+    green: #00867C,
+    yellow: #FEBB13,
+    darkblue: #003595,
+    navy: #0061AC,
+    magenta :#E53E53,
+    lightgrey: #F2F1F1,
+    grey: #d8d8d8,
+    darkgrey: #4c4b4b,
+    black: hsla(0, 0%, 0%, 1),
+    white: hsla(85, 100%, 100%, 1),
+    muted: hsla(0, 0%, 92%, 1)
+  ),
+  dark: (
+    base: hsla(210, 26%, 20%, 1),
+    base2: hsla(180, 23%, 16%, 1),
+    lines: hsla(0, 0%, 80%, 1)
+  ),
+  neutral: (
+    base: hsla(210, 2%, 38%, 1),
+    base2: hsla(38, 45%, 76%, 1)
+  ),
+  muted: (
+    base: hsla(93, 0%, 95%, 1),
+    base2: hsla(93, 0%, 85%, 1),
+    lines: hsla(43, 33%, 92%, 1)
+  ),
+  feedback: (
+    positive: hsla(90, 59%, 54%, 1)
+  ),
+  drawers: (
+    bg: hsla(0, 0%, 100%, 1),
+    text: hsl(0, 0%, 83%),
+    textHighlight: hsl(0, 0%, 98%),
+    titles: hsl(0, 0%, 100%)
+  ),
+  footer: (
+    bg: hsla(113, 0%, 97%, 1)
+  ),
+  text: (
+    base: hsla(210, 2%, 18%, 1),
+    primary: hsla(220, 7%, 26%, 1),
+    accent: hsla(0, 2%, 10%, 1),
+    neutral: hsla(109, 0%, 52%, 1),
+    muted: hsla(210, 10%, 62%, 1),
+    negative: hsla(8, 63%, 49%, 1)
+  ),
+  link: (
+    normal: #E53E53,
+    mail: #00A8E1,
+    hover: #FF586D,
+    active: hsla(0, 0%, 27%, 1)
+  )
+);

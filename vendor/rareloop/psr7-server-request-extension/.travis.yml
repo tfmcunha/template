@@ -1,0 +1,21 @@
+language: php
+php:
+- 7.0
+- 7.1
+- 7.2
+env:
+  matrix:
+  - COMPOSER_FLAGS="--prefer-lowest"
+  - COMPOSER_FLAGS=""
+before_script:
+- travis_retry composer self-update
+- travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+script:
+- vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
+- vendor/bin/phpcs --standard=PSR2 ./src
+after_script:
+- php vendor/bin/coveralls -v
+notifications:
+  slack:
+    rooms:
+      secure: iR5qsssCeSbnsqrmeo8QUywj2qfDH5Yo9GLpU52VFR4DSV2qhWyuuokCtWDApQVCMG1odoCa2W4efWx6tYpWL7UZe5F6S8+bAPE9I2fkOwo10kJh4ZJlcXFZp2z2ntwDTockfiA9g0NKcTRKci5/Cm6PEreBIl2lCbibxbxwLjl24ADGdWJ3xP7BbDtzV7LrUzgDIZJ8qLeTHfsC/hlrRqk9ejezOCAu8c1VYCfdfeLrT5H+B/qaUOHEu9S3pMcIVDlPHuS/vZz4lFXawG3QunCTdOl2DPj63d1jKCGRcr9uCz+Jwh4yHIrrHqAZaQeOb3B/WnHfjLIdzPDuJkTXNv0e3KgsTpAU9bg5bipTC8iNkNxSnUeHvTzw56OtETSWhLoJFq5yTdIN/He1B/N8TUyyPGB1VTJlAlzuqmLvIL+734h6gZxSjzFIQ/B5n2HTMNBdTbi6MjUYhL/PZEO6pRws0U7NJJ5EcpGXdep3ucBtTBAqYeQ93ZIPVwODVitxUTD9CqwECmd9MUSsUB5FLF69WRxYzVvGM3i6qAGexHwDGuTSWu2Fl2+8RB6DSiec/JIF+GP0Jf67rdIVsLevoyD2z1WvP2ZBhsm0e5Xxd2yNhaNv/N6zqRR8FXGkFBMrrpK4iEjpiY6JqE8zxKO+uxF+QAaJiSv4FwkXpG0JYMw=

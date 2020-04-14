@@ -1,0 +1,47 @@
+{% macro menuItem(item, level, icon) %}
+  {% import _self as self %}
+  {% set menuId = fn('sanitize_title', item.title) %}
+  <div class="Nav__item Nav__item--level-{{ level }} {{ item.classes | join(' ') }}" data-level="{{ level }}" data-target="menu-{{ menuId }}">
+    <a href="{{ item.link }}" class="Nav__item__link level-{{ level }}" {% if item.target %} target="{{ item.target }}" {% endif %} alt="{{ item.attr_title }}" itemprop="url">
+      <span>
+        {{ item.title }}
+      </span>
+    </a>
+  </div>
+{% endmacro %}
+
+{% macro submenuItem(item, level, icon) %}
+  {% import _self as self %}
+  {% set menuId = fn('sanitize_title', item.title) %}
+  <div class="Nav__item Nav__item--level-{{ level }} {{ item.classes | join(' ') }}" data-level="{{ level }}" data-identifier="menu-{{ menuId}}">
+    {% if level > 1 %}
+      <a href="{{ item.link }}" class="Nav__item__link level-{{ level }}" {% if item.target %} target="{{ item.target }}" {% endif %} alt="{{ item.attr_title }}" itemprop="url">
+        <span>
+          {{ item.title }}
+        </span>
+      </a>
+    {% endif %}
+    {% if item.get_children %}
+      <div class="Nav Nav__submenu level-{{ level }}">
+        {% set newLevel = level + 1 %}
+        {% for item in item.get_children %}
+          {{ self.submenuItem(item, newLevel, icon) }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro embedded_list(items, icon) %}
+  {% import _self as menus %}
+  <div class="main_options">
+    {% for item in items %}
+      {{ menus.menuItem(item, 1, icon) }}
+    {% endfor %}
+  </div>
+  <div class="submenus">
+    {% for item in items %}
+      {{ menus.submenuItem(item, 1, icon) }}
+    {% endfor %}
+  </div>
+{% endmacro %}

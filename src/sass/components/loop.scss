@@ -1,0 +1,40 @@
+.Loop {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  margin: 0 auto;
+  @include mq($until: tablet) {
+    max-width: 25rem;
+  }
+  &.tablet-col-1 {
+    @include mq($from: tablet, $until: desktop){
+      max-width: 25rem;
+    }
+  }
+  &.tablet-col-2 {
+    @include mq($from: tablet, $until: desktop){
+      max-width: 35rem;
+    }
+  }
+  &.is-style-no-gap {
+    grid-gap: 0;
+  }
+  
+}
+
+@for $i from 1 through 5 {
+  .desktop-col-#{$i} {
+    @include mq($from: desktop){
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  .tablet-col-#{$i} {
+    @include mq($from: tablet, $until: desktop){
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}

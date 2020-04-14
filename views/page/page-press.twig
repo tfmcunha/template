@@ -1,0 +1,39 @@
+{% extends "base.twig" %}
+{% set namespace = 'press' %}
+
+{% block content %}
+
+  <main class="Main">
+    <div class="Main__content">
+      <div class="Container Container--narrower">
+      {{ post.content | raw }}  
+        <div class="Section PressReleases">
+          <h1>Press Releases</h1>
+          <p>The latest news releases from Sorenson Communications are below.</p>
+          
+          {% set minimumYear = 2016 %}
+          {% set currentYear = "now"|date("Y") %}  
+
+          <ul class="press-release__nav" data-component="PressYearNav">
+            <li class="year__nav isActive" id="{{currentYear}}">{{ currentYear }}</li>
+            {% for year in (currentYear-1)..minimumYear %}
+             <li class="year__nav" id={{year}}>{{ year }}</li>
+          {% endfor %}
+          </ul>
+
+        {% for pressRelease in posts%} 
+          <div class="press-release">
+            <p class="date">{{pressRelease.post_date | date }}</p>
+            <h3>{{pressRelease.post_title}}</h3>
+            <div class="content">
+              {{pressRelease.content | raw }}
+            </div>
+          </div>
+        {% endfor %}  
+
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% macro menuItem(item, level, icon) %}
+  {% import _self as self %}
+  {% if item.get_children and level == 1 %}<div class="Accordion__item">{% endif %}
+    <div class="Nav__item Nav__item--level-{{ level }} {{ item.classes | join(' ') }} {% if item.get_children and level == 1 %}Accordion__toggle{% endif %}" data-level="{{ level }}">
+      <a href="{{ item.link }}" class="Nav__item__link level-{{ level }}{% if item.current %} is-active{% endif %}" {% if item.target %} target="{{ item.target }}" {% endif %} alt="{{ item.attr_title }}" itemprop="url">
+        
+        <span>
+          {{ item.title }}
+        </span>
+      </a>
+      {% if item.get_children and level == 1%} 
+          <span class="arrow">
+          </span>
+        {% endif %}
+      {% if item.get_children %}
+        <div class="Accordion__container contentWrapper">
+          <div class="Nav Nav__submenu level-{{ level }}">
+            {% set newLevel = level + 1 %}
+            {% if item.title == 'Products' %}
+            {% for item in item.get_children %}
+              <div class="wrapper">
+                <svg viewbox='0 0 20 20' class="icon {{item.title | replace({' ':'_'}) | lower }}" width="2rem" height="2rem" style="color: #00A8E1">
+                  <use xlink:href='#{{item.title}}'></use>
+                </svg>
+              {{ self.menuItem(item, newLevel, icon) }}
+              </div>
+            {% endfor %}
+            {% else %}
+            {% for item in item.get_children %}
+              {{ self.menuItem(item, newLevel, icon) }}
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% if item.get_children and level == 1%}</div>{% endif %}
+{% endmacro %}
+
+{% macro embedded_list(items, icon) %}
+  {% import _self as menus %}
+
+  {% for item in items %}
+    {{ menus.menuItem(item, 1, icon) }}
+  {% endfor %}
+{% endmacro %}

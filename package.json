@@ -52,7 +52,7 @@
     "evx": "^1.0.1",
     "family.scss": "^1.0.8",
     "flickity-imagesloaded": "^2.0.0",
-    "gsap": "^3.0.1",
+    "gsap": "^3.6.0",
     "hoverintent": "^1.0.3",
     "imagesloaded": "^4.1.1",
     "immer": "^4.0.2",
